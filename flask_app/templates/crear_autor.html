@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Autor</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body class="container_1">
+
+    <div class="crear_autor">
+        <form action="/autores/crear" method="POST">
+            <h2 class="text-center text-danger">Agrega un autor</h2>
+            <div class="mb-3">
+            <label for="autor" class="form-label">Autor:</label>
+            <input type="text" name="autor" class="form-control" id="autor" aria-describedby="emailHelp">
+            </div>
+        
+            <button type="submit" class="btn btn-danger">Agregar</button>
+        </form>
+        </div>
+
+        <a href="/libros" class="btn btn-secondary" id="boton_crear">Agrega un libro</a>
+    
+        <div class="lista_autores">
+        <h2 class="text-center">Autores</h2>
+        <ul class="list-group">
+            {% for autor in todos_autores %}
+            <li><a href="/autores/{{autor.id}}" class="detail">{{autor.autor}}</a></li>
+            {% endfor %}
+        </ul>
+        </div>
+    
+</body>
+</html>
